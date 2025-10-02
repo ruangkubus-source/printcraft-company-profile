@@ -1,4 +1,35 @@
 <!DOCTYPE html>
+<!-- Promo Bar -->
+<div class="bg-fa9500 text-white text-sm py-2 overflow-hidden">
+  <div class="flex animate-scroll whitespace-nowrap">
+    <span class="mx-4">🚚 Gratis ongkir untuk pesanan di atas Rp500.000</span>
+    <span class="mx-4">↩️ Garansi retur 30 hari tanpa ribet</span>
+    <span class="mx-4">
+      📩 
+      <a href="#kontak" class="underline hover:text-eb6424 font-medium">
+        Daftar newsletter & dapatkan diskon 10%!
+      </a>
+    </span>
+    <span class="mx-4">🖨️ Cetak brosur mulai dari Rp1.500/pcs!</span>
+    <span class="mx-4">🎁 Diskon 15% untuk klien baru bulan ini!</span>
+  </div>
+</div>
+
+<style>
+  @keyframes scroll {
+    0% { transform: translateX(100%); }
+    100% { transform: translateX(-100%); }
+  }
+  .animate-scroll {
+    animation: scroll 25s linear infinite;
+    display: inline-block;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .animate-scroll {
+      animation: none;
+    }
+  }
+</style>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
@@ -228,4 +259,5 @@
 
   <script src="script.js"></script>
 </body>
+
 </html>
