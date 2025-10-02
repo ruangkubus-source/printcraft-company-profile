@@ -1,8 +1,8 @@
 /* Hanya untuk custom style yang tidak bisa di Tailwind */
-html {
-  scroll-behavior: smooth;
+body {
+  -webkit-overflow-scrolling: touch;
+  overflow-x: hidden; /* Hindari scroll horizontal */
 }
-
 button, .btn {
   transition: all 0.3s ease;
 }
