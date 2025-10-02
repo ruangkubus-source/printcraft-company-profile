@@ -1,36 +1,50 @@
-// Smooth scroll ke bagian tertentu
+// Preloader
+window.addEventListener('load', () => {
+  const preloader = document.getElementById('preloader');
+  if (preloader) preloader.style.display = 'none';
+});
+
+// Smooth scroll
 function scrollToSection(id) {
-  const element = document.getElementById(id);
-  if (!element) return;
-
-  const promoBar = document.getElementById('promoBar');
-  const header = document.querySelector('header');
-  let offset = 0;
-  if (promoBar) offset += promoBar.offsetHeight;
-  if (header) offset += header.offsetHeight;
-
-  const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
-  const targetPosition = elementPosition - offset;
-
-  window.scrollTo({
-    top: targetPosition,
-    behavior: 'smooth'
-  });
+  if (id === 'home') {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  } else {
+    const element = document.getElementById(id);
+    if (!element) return;
+    const header = document.querySelector('header');
+    let offset = 0;
+    if (header) offset += header.offsetHeight;
+    const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
+    const targetPosition = elementPosition - offset;
+    window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+  }
 }
 
-// Hero Carousel Fade with True Loop
+// Mobile Menu Toggle
+const mobileMenuButton = document.getElementById('mobileMenuButton');
+const mobileMenu = document.getElementById('mobileMenu');
+if (mobileMenuButton && mobileMenu) {
+  mobileMenuButton.addEventListener('click', () => {
+    mobileMenu.classList.toggle('hidden');
+  });
+}
+document.querySelectorAll('#mobileMenu a').forEach(link => {
+  link.addEventListener('click', () => {
+    const menu = document.getElementById('mobileMenu');
+    if (menu) menu.classList.add('hidden');
+  });
+});
+
+// Hero Carousel Fade
 document.addEventListener('DOMContentLoaded', () => {
   const slides = document.querySelectorAll('.hero-slide');
   const dotsContainer = document.getElementById('heroDots');
   const prevBtn = document.getElementById('prevBtn');
   const nextBtn = document.getElementById('nextBtn');
   let currentIndex = 0;
-  const totalSlides = slides.length;
+  if (slides.length === 0) return;
 
-  if (totalSlides === 0) return;
-
-  // Generate dots
-  for (let i = 0; i < totalSlides; i++) {
+  for (let i = 0; i < slides.length; i++) {
     const dot = document.createElement('button');
     dot.className = 'w-2.5 h-2.5 rounded-full bg-white bg-opacity-50 hover:bg-opacity-75 transition-all';
     dot.addEventListener('click', () => goToSlide(i));
@@ -46,53 +60,40 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function goToSlide(index) {
-    // Fade out current
     slides[currentIndex].classList.remove('active');
-    // Fade in new
     setTimeout(() => {
       slides[index].classList.add('active');
       currentIndex = index;
       updateDots();
-    }, 300); // Slight delay to ensure fade-out completes
+    }, 300);
   }
 
   function nextSlide() {
-    const nextIndex = (currentIndex + 1) % totalSlides;
-    goToSlide(nextIndex);
+    goToSlide((currentIndex + 1) % slides.length);
   }
 
-  function prevSlide() {
-    const prevIndex = (currentIndex - 1 + totalSlides) % totalSlides;
-    goToSlide(prevIndex);
-  }
-
-  // Event listeners
-  prevBtn?.addEventListener('click', prevSlide);
-  nextBtn?.addEventListener('click', nextSlide);
-
-  // Auto-play every 5 seconds
   setInterval(nextSlide, 5000);
-
-  // Show first slide
-  slides[0].classList.add('active');
+  prevBtn?.addEventListener('click', () => goToSlide((currentIndex - 1 + slides.length) % slides.length));
+  nextBtn?.addEventListener('click', () => nextSlide());
   updateDots();
 });
-// Di script.js
-const backToTop = document.getElementById('backToTop');
-window.addEventListener('scroll', () => {
-  if (window.scrollY > 2600) {
-    backToTop.classList.remove('opacity-0', 'invisible');
-    backToTop.classList.add('opacity-100', 'visible');
-  } else {
-    backToTop.classList.add('opacity-0', 'invisible');
-  }
-});
-backToTop?.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
 
-// Hide preloader when page is fully loaded
-window.addEventListener('load', () => {
-  const preloader = document.getElementById('preloader');
-  if (preloader) {
-    preloader.style.display = 'none';
-  }
+// Back to Top
+const backToTop = document.getElementById('backToTop');
+if (backToTop) {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 400) {
+      backToTop.classList.remove('opacity-0', 'invisible');
+    } else {
+      backToTop.classList.add('opacity-0', 'invisible');
+    }
+  });
+  backToTop.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+}
+
+// Form Kontak
+document.getElementById('contactForm')?.addEventListener('submit', function(e) {
+  e.preventDefault();
+  alert('Terima kasih! Pesan Anda telah dikirim.');
+  this.reset();
 });
