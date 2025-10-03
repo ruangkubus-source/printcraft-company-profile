@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8"/>
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <!-- SEO Meta Tags -->
   <meta name="description" content="EdditanSimpel – Solusi percetakan & iklan kreatif untuk UMKM dan perusahaan.">
@@ -13,10 +13,8 @@
   <title>EdditanSimpel – Solusi Percetakan & Iklan Kreatif</title>
   <!-- Tailwind CSS via CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css" />
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
   <!-- Font Awesome -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <!-- Custom Tailwind Config -->
@@ -30,9 +28,13 @@
             'ffdac6': '#ffdac6',
             'fa9500': '#fa9500',
             'eb6424': '#eb6424',
+            'ceefff': '#ceefff',
+            'd4c7b0': '#d4c7b0',
+            '432818': '#432818',
           },
           fontFamily: {
             inter: ['Inter', 'sans-serif'],
+            playfair: ['"Playfair Display"', 'serif'],
           }
         }
       }
@@ -46,64 +48,86 @@
     gtag('js', new Date());
     gtag('config', 'G-XXXXXXXXXX');
   </script>
+  <!-- Custom CSS -->
+  <style>
+    html, body {
+      height: 100%;
+      scroll-behavior: smooth;
+    }
+    .hero-slide {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      transition: opacity 1s ease-in-out;
+      pointer-events: none;
+    }
+    .hero-slide.active {
+      opacity: 1;
+      pointer-events: auto;
+    }
+  </style>
 </head>
-<body class="font-inter bg-ffdac6 text-gray-800">
+<body class="font-inter text-gray-800 relative overflow-x-hidden">
   <!-- Preloader -->
-  <div id="preloader" class="fixed inset-0 bg-white z-50 flex items-center justify-center">
+  <div id="preloader" class="fixed inset-0 z-50 bg-white flex items-center justify-center">
     <div class="w-16 h-16 border-4 border-fa9500 border-t-transparent rounded-full animate-spin"></div>
   </div>
 
+  <!-- Promo Bar -->
+  <div id="promoBar" class="sticky top-0 z-50 bg-black text-white text-xs md:text-sm py-1.5 text-center">
+    <div id="promoContainer" class="transition-opacity duration-700 ease-in-out max-w-4xl mx-auto px-4">
+      Loading...
+    </div>
+  </div>
+
   <!-- Header -->
-  <header class="top-0 z-50 bg-white shadow-sm">
+  <header class="sticky top-[32px] z-40 bg-d4c7b0 shadow-sm">
     <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <!-- Logo + Nama -->
       <div class="flex items-center space-x-3">
         <div class="bg-gray-200 border-2 border-dashed rounded-xl w-12 h-12 flex items-center justify-center">
-          <span class="text-gray-500 text-xs">LOGO</span>
+          <span class="text-gray-500 text-xs font-inter">LOGO</span>
         </div>
-        <h1 class="text-xl font-bold text-7c6a0a">EdditanSimpel</h1>
+        <h1 class="text-xl font-bold text-432818 font-playfair">EdditanSimpel</h1>
       </div>
 
-      <!-- Desktop Navigation -->
       <nav class="hidden md:flex space-x-6">
-        <a href="#home" class="hover:text-fa9500 transition-colors">Beranda</a>
-        <a href="#layanan" class="hover:text-fa9500 transition-colors">Layanan</a>
-        <a href="#tentang" class="hover:text-fa9500 transition-colors">Tentang</a>
-        <a href="#portofolio" class="hover:text-fa9500 transition-colors">Portofolio</a>
+        <a href="#home" class="hover:text-fa9500 transition-colors font-inter font-medium">Beranda</a>
+        <a href="#layanan" class="hover:text-fa9500 transition-colors font-inter font-medium">Layanan</a>
+        <a href="#tentang" class="hover:text-fa9500 transition-colors font-inter font-medium">Tentang</a>
+        <a href="#portofolio" class="hover:text-fa9500 transition-colors font-inter font-medium">Portofolio</a>
       </nav>
 
-      <!-- Tombol CTA Desktop -->
-      <button id="ctaButton" class="hidden md:block bg-eb6424 text-white px-5 py-2 rounded-lg font-medium hover:bg-fa9500 transition-all shadow-md hover:shadow-lg">
+      <button id="ctaButton" class="hidden md:block bg-eb6424 text-white px-5 py-2 rounded-lg font-inter font-semibold hover:bg-fa9500 transition-all shadow-md hover:shadow-lg">
         Kontak Kami
       </button>
 
-      <!-- Mobile Menu Button -->
       <button id="mobileMenuButton" class="md:hidden text-7c6a0a">
         <i class="fas fa-bars text-xl"></i>
       </button>
     </div>
 
-    <!-- Mobile Menu -->
-    <div id="mobileMenu" class="hidden md:hidden bg-white border-t">
+    <div id="mobileMenu" class="hidden md:hidden bg-d4c7b0 border-t">
       <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-        <a href="#home" class="hover:text-fa9500">Beranda</a>
-        <a href="#layanan" class="hover:text-fa9500">Layanan</a>
-        <a href="#tentang" class="hover:text-fa9500">Tentang</a>
-        <a href="#portofolio" class="hover:text-fa9500">Portofolio</a>
-        <button id="mobileCtaButton" class="bg-eb6424 text-white px-4 py-2 rounded-lg font-medium mt-2">
+        <a href="#home" class="hover:text-fa9500 font-inter font-medium">Beranda</a>
+        <a href="#layanan" class="hover:text-fa9500 font-inter font-medium">Layanan</a>
+        <a href="#tentang" class="hover:text-fa9500 font-inter font-medium">Tentang</a>
+        <a href="#portofolio" class="hover:text-fa9500 font-inter font-medium">Portofolio</a>
+        <button id="mobileCtaButton" class="bg-eb6424 text-white px-4 py-2 rounded-lg font-inter font-semibold mt-2">
           Hubungi Kami
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Carousel - Fade In/Out 
-  <section id="home" class="relative bg-black h-[60vh] md:h-screen overflow-hidden">-->
+  <!-- Hero Carousel -->
   <section id="home" class="relative bg-black h-[50vh] md:h-[60vh] overflow-hidden">
     <div id="heroSlides" class="absolute inset-0">
       <!-- Slide 1 -->
       <div class="hero-slide active">
-        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Tim PrintCraft" class="w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Tim PrintCraft" class="w-full h-full object-cover">
         <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-white max-w-md mx-auto">
           <h1 class="text-2xl md:text-4xl font-bold mb-2 font-inter">Percetakan & Iklan Kreatif</h1>
           <p class="text-sm md:text-base mb-4 font-inter">Solusi premium untuk branding bisnis Anda</p>
@@ -114,7 +138,7 @@
       </div>
       <!-- Slide 2 -->
       <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Neon Box Restoran" class="w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Neon Box Restoran" class="w-full h-full object-cover">
         <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-white max-w-md mx-auto">
           <h1 class="text-2xl md:text-4xl font-bold mb-2 font-inter">Iklan Outdoor Menarik</h1>
           <p class="text-sm md:text-base mb-4 font-inter">Buat bisnis Anda dikenal di ruang publik</p>
@@ -125,7 +149,7 @@
       </div>
       <!-- Slide 3 -->
       <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Desain Kemasan Kopi" class="w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Desain Kemasan Kopi" class="w-full h-full object-cover">
         <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-white max-w-md mx-auto">
           <h1 class="text-2xl md:text-4xl font-bold mb-2 font-inter">Desain Grafis Profesional</h1>
           <p class="text-sm md:text-base mb-4 font-inter">Identitas visual yang mencerminkan brand Anda</p>
@@ -136,7 +160,7 @@
       </div>
       <!-- Slide 4 -->
       <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Workshop Percetakan" class="w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Workshop Percetakan" class="w-full h-full object-cover">
         <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-white max-w-md mx-auto">
           <h1 class="text-2xl md:text-4xl font-bold mb-2 font-inter">Workshop Percetakan</h1>
           <p class="text-sm md:text-base mb-4 font-inter">Belajar langsung dari ahli percetakan profesional</p>
@@ -147,7 +171,7 @@
       </div>
       <!-- Slide 5 -->
       <div class="hero-slide">
-        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" alt="Digital Marketing" class="w-full h-full object-cover">
+        <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Digital Marketing" class="w-full h-full object-cover">
         <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-white max-w-md mx-auto">
           <h1 class="text-2xl md:text-4xl font-bold mb-2 font-inter">Digital Marketing</h1>
           <p class="text-sm md:text-base mb-4 font-inter">Strategi digital untuk meningkatkan penjualan</p>
@@ -172,28 +196,10 @@
 
     <!-- Dot Indicators -->
     <div id="heroDots" class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"></div>
-
-    <!-- Custom CSS for fade -->
-    <style>
-      .hero-slide {
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        opacity: 0;
-        transition: opacity 1s ease-in-out;
-        pointer-events: none;
-      }
-      .hero-slide.active {
-        opacity: 1;
-        pointer-events: auto;
-      }
-    </style>
   </section>
 
   <!-- Layanan -->
-  <section id="layanan" class="py-16 bg-white">
+  <section id="layanan" class="py-16 bg-d4c7b0">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12 text-7c6a0a">Layanan Kami</h2>
       <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -221,16 +227,30 @@
     <div class="container mx-auto px-4">
       <div class="flex flex-col md:flex-row items-center gap-10">
         <div class="md:w-1/2">
-          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tim EdditanSimpel" class="rounded-xl shadow-lg w-full">
+          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tim EdditanSimpel" class="rounded-xl shadow-lg w-full" loading="lazy">
         </div>
         <div class="md:w-1/2">
           <h2 class="text-3xl font-bold mb-4">Tentang EdditanSimpel</h2>
           <p class="mb-4">
             Didirikan sejak 2015, EdditanSimpel telah membantu ratusan UMKM dan perusahaan besar dalam membangun identitas visual yang kuat melalui solusi percetakan dan iklan yang inovatif.
           </p>
-          <p>
-            Kami percaya bahwa detail kecil menciptakan dampak besar — dan itulah mengapa kami selalu memberikan yang terbaik dalam setiap proyek.
+          <p class="mb-6">
+            Dengan tim yang berpengalaman dan peralatan terkini, kami berkomitmen untuk memberikan hasil terbaik yang memenuhi ekspektasi klien.
           </p>
+          <div class="flex flex-wrap gap-4">
+            <div class="bg-white bg-opacity-20 rounded-lg p-3 text-center flex-1 min-w-[120px]">
+              <div class="text-2xl font-bold mb-1">8+</div>
+              <div class="text-sm">Tahun Pengalaman</div>
+            </div>
+            <div class="bg-white bg-opacity-20 rounded-lg p-3 text-center flex-1 min-w-[120px]">
+              <div class="text-2xl font-bold mb-1">500+</div>
+              <div class="text-sm">Proyek Selesai</div>
+            </div>
+            <div class="bg-white bg-opacity-20 rounded-lg p-3 text-center flex-1 min-w-[120px]">
+              <div class="text-2xl font-bold mb-1">95%</div>
+              <div class="text-sm">Klien Puas</div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -243,21 +263,21 @@
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
           <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Desain Brosur" class="w-full h-48 object-cover">
-          <div class="p-4 bg-white text-center">
+          <div class="p-4 bg-d4c7b0 text-center">
             <h3 class="font-semibold">Nota Eksklusif</h3>
             <p class="text-sm text-gray-600 mt-1">Chikin Smart Farm</p>
           </div>
         </div>
         <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
           <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Neon Box" class="w-full h-48 object-cover">
-          <div class="p-4 bg-white text-center">
+          <div class="p-4 bg-d4c7b0 text-center">
             <h3 class="font-semibold">Neon Box Restoran</h3>
             <p class="text-sm text-gray-600 mt-1">Klien: Warung Sunda Enak</p>
           </div>
         </div>
         <div class="rounded-xl overflow-hidden shadow-md hover:shadow-xl transition-shadow">
           <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kemasan Produk" class="w-full h-48 object-cover">
-          <div class="p-4 bg-white text-center">
+          <div class="p-4 bg-d4c7b0 text-center">
             <h3 class="font-semibold">Desain Kemasan Kopi</h3>
             <p class="text-sm text-gray-600 mt-1">Klien: Kopi Gunung</p>
           </div>
@@ -267,11 +287,11 @@
   </section>
 
   <!-- Client Logos -->
-  <section class="py-16 bg-white">
+  <section class="py-16 bg-d4c7b0">
     <div class="container mx-auto px-4">
-      <h2 class="text-3xl font-bold text-center mb-10 text-7c6a0a">Klien Kami</h2>
+      <h2 class="text-3xl font-bold text-center mb-10 text-7c6a0a">Rekan Kami</h2>
       <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-        <div class="bg-white p-4 rounded-2xl w-40 h-40 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
+        <div class="bg-d4c7b0 p-4 rounded-2xl w-40 h-40 flex items-center justify-center shadow-sm hover:shadow-md transition-shadow duration-300">
           <img src="static/images/chikin2.png" alt="Klien 1" class="max-h-32 max-w-full object-contain">
         </div>
         <div class="bg-gray-100 border-2 border-dashed border-gray-300 rounded-2xl w-40 h-40 flex items-center justify-center">
@@ -294,11 +314,10 @@
   </section>
 
   <!-- Kontak -->
-  <section id="kontak" class="py-16 bg-white">
+  <section id="kontak" class="py-16 bg-d4c7b0">
     <div class="container mx-auto px-4">
       <h2 class="text-3xl font-bold text-center mb-12 text-7c6a0a">Kontak Kami</h2>
       <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8">
-        <!-- Info Kontak & Sosial Media -->
         <div class="bg-ffdac6 p-8 rounded-xl shadow-md">
           <div class="space-y-5 mb-8">
             <div class="flex items-start">
@@ -342,7 +361,6 @@
           </div>
         </div>
 
-        <!-- Form Kontak -->
         <div class="bg-ffdac6 p-8 rounded-xl shadow-md">
           <form id="contactForm" class="space-y-4">
             <div>

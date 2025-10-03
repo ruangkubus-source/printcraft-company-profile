@@ -3,6 +3,39 @@ window.addEventListener('load', () => {
   const preloader = document.getElementById('preloader');
   if (preloader) preloader.style.display = 'none';
 });
+// Promo Bar Carousel
+const promos = [
+  "🚚 Gratis ongkir untuk pesanan di atas Rp500.000",
+  "↩️ Garansi retur 30 hari tanpa ribet",
+  "📩 <a href='#kontak' class='underline hover:text-eb6424 font-inter font-medium'>Daftar newsletter & dapatkan diskon 10%!</a>",
+  "🖨️ Cetak brosur mulai dari Rp1.500/pcs!",
+  "🎁 Diskon 15% untuk klien baru bulan ini!"
+];
+
+let currentIndexPromo = 0;
+const promoContainer = document.getElementById('promoContainer');
+
+if (promoContainer) {
+  function showPromo(index) {
+    promoContainer.style.opacity = '0';
+    setTimeout(() => {
+      promoContainer.innerHTML = promos[index];
+      promoContainer.style.opacity = '1';
+    }, 350);
+  }
+
+  function nextPromo() {
+    currentIndexPromo = (currentIndexPromo + 1) % promos.length;
+    showPromo(currentIndexPromo);
+  }
+
+  showPromo(currentIndexPromo);
+  setInterval(nextPromo, 10000);
+}
+// Cek preferensi pengguna
+const isDarkMode = localStorage.theme === 'dark' || 
+  (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches);
+
 
 // Smooth scroll
 function scrollToSection(id) {
@@ -13,7 +46,7 @@ function scrollToSection(id) {
     if (!element) return;
     const header = document.querySelector('header');
     let offset = 0;
-    if (header) offset += header.offsetHeight;
+    if (header) offset = header.offsetHeight; // Hanya header, bukan promo bar
     const elementPosition = element.getBoundingClientRect().top + window.pageYOffset;
     const targetPosition = elementPosition - offset;
     window.scrollTo({ top: targetPosition, behavior: 'smooth' });
@@ -82,7 +115,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const backToTop = document.getElementById('backToTop');
 if (backToTop) {
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 400) {
+    if (window.scrollY > 2000) {
       backToTop.classList.remove('opacity-0', 'invisible');
     } else {
       backToTop.classList.add('opacity-0', 'invisible');
