@@ -1,13 +1,615 @@
-/* Hanya untuk custom style yang tidak bisa di Tailwind */
-body {
-  -webkit-overflow-scrolling: touch;
-  overflow-x: hidden; /* Hindari scroll horizontal */
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
 }
-button, .btn {
-  transition: all 0.3s ease;
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(135deg, #4338CA, #0891B2);
+}
+
+/* Parallax Elements */
+.parallax-element {
+  position: absolute;
+  width: 100%;
+  height: 120%;
+  top: -10%;
+  z-index: -1;
+  background-position: center;
+  background-size: cover;
+  will-change: transform;
+}
+
+/* Reveal Animation - Durasi Diperpanjang */
+.reveal {
+  position: relative;
+  opacity: 0;
+  transition: opacity 0.8s ease, transform 1s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.reveal.active {
+  opacity: 1;
+}
+
+.reveal-from-bottom {
+  transform: translateY(50px);
+}
+
+.reveal-from-bottom.active {
+  transform: translateY(0);
+}
+
+.reveal-from-left {
+  transform: translateX(-50px);
+}
+
+.reveal-from-left.active {
+  transform: translateX(0);
+}
+
+.reveal-from-right {
+  transform: translateX(50px);
+}
+
+.reveal-from-right.active {
+  transform: translateX(0);
+}
+
+/* Section Transitions */
+.section-transition {
+  position: relative;
+  overflow: hidden;
+}
+
+.section-transition::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(15, 23, 42, 0) 0%, rgba(15, 23, 42, 0.8) 100%);
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* Gradient Background */
+.gradient-bg-1 {
+  background: linear-gradient(135deg, #1E40AF, #4F46E5);
+}
+
+.gradient-bg-2 {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+}
+
+.gradient-bg-3 {
+  background: linear-gradient(135deg, #06B6D4, #0F172A);
+}
+
+/* Floating Elements */
+.floating-element {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(40px);
+  opacity: 0.6;
+  animation: float 20s infinite ease-in-out;
+}
+
+.floating-1 {
+  width: 300px;
+  height: 300px;
+  background: rgba(79, 70, 229, 0.3);
+  top: 10%;
+  left: 5%;
+}
+
+.floating-2 {
+  width: 200px;
+  height: 200px;
+  background: rgba(6, 182, 212, 0.3);
+  bottom: 10%;
+  right: 10%;
+  animation-delay: 2s;
+}
+
+.floating-3 {
+  width: 150px;
+  height: 150px;
+  background: rgba(30, 64, 175, 0.3);
+  top: 50%;
+  left: 50%;
+  animation-delay: 4s;
+}
+
+/* Hero Section - Transparansi Dikurangi */
+.hero-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.2s ease-in-out; /* Durasi diperpanjang */
+  pointer-events: none;
+}
+
+.hero-slide.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Hero Slide Background - Transparansi Dikurangi */
+.hero-slide .absolute.inset-0.opacity-30 {
+  opacity: 0.3; /* Dikurangi dari 0.4 menjadi 0.3 */
+}
+
+.hero-slide .absolute.inset-0.bg-gradient-to-br {
+  /* Transparansi dikurangi untuk semua slide */
+  &.from-primary-dark\/80 {
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.8), rgba(30, 64, 175, 0.8));
+  }
+  
+  &.from-primary\/80 {
+    background: linear-gradient(135deg, rgba(30, 64, 175, 0.8), rgba(79, 70, 229, 0.8));
+  }
+  
+  &.from-secondary\/80 {
+    background: linear-gradient(135deg, rgba(79, 70, 229, 0.8), rgba(6, 182, 212, 0.8));
+  }
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Card Hover Effects - Transisi Lebih Halus */
+.card-hover {
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1); /* Durasi diperpanjang */
+}
+
+.card-hover:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+/* Button Styles - Transisi Lebih Halus */
+.btn-primary {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  transition: all 0.5s ease; /* Durasi diperpanjang */
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #4338CA, #0891B2);
+  z-index: -1;
+  transition: all 0.5s ease; /* Durasi diperpanjang */
+  transform: translateX(-100%);
+}
+
+.btn-primary:hover::before {
+  transform: translateX(0);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(79, 70, 229, 0.3);
+  color: white;
+}
+
+/* Glass Effect */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* Text Shadow */
+.text-shadow {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Dot Indicators */
+.dot-indicator {
+  transition: all 0.5s ease; /* Durasi diperpanjang */
+}
+
+.dot-indicator.active {
+  background-color: #06B6D4;
+  width: 24px;
+}
+
+/* Form Input Styles */
+.form-input:focus {
+  border-color: #4F46E5;
+  box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.1);
+  transition: all 0.4s ease; /* Transisi lebih halus */
+}
+
+/* Lightbox Styles - Transisi Lebih Halus */
+.lightbox-enter {
+  animation: lightboxEnter 0.6s ease-out forwards; /* Durasi diperpanjang */
+}
+
+.lightbox-exit {
+  animation: lightboxExit 0.4s ease-in forwards;
+}
+
+@keyframes lightboxEnter {
+  from {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes lightboxExit {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.8);
+  }
+}
+
+.animate-zoomIn {
+  animation: zoomInLightbox 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Durasi diperpanjang */
+}
+
+@keyframes zoomInLightbox {
+  from {
+    opacity: 0;
+    transform: scale(0.5) translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Lightbox image transition - Transisi Lebih Halus */
+#lightboxImage {
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Durasi diperpanjang */
+}
+
+.lightbox-image-enter {
+  transform: scale(1.05);
+  opacity: 0.9;
+}
+
+.lightbox-image-exit {
+  transform: scale(0.95);
+  opacity: 0.7;
+}
+
+/* Parallax Background */
+.parallax-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  background: linear-gradient(135deg, #0F172A, #1E40AF);
+  will-change: transform;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: rgba(255, 255, 255, 0.1);
+  z-index: 100;
+}
+
+.scroll-progress {
+  height: 100%;
+  background: linear-gradient(90deg, #4F46E5, #06B6D4);
+  width: 0;
+  transition: width 0.5s ease; /* Transisi lebih halus */
+}
+
+/* Section Divider */
+.section-divider {
+  position: relative;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, rgba(79, 70, 229, 0.5), transparent);
+  margin: 60px 0;
+}
+
+/* Shape Divider */
+.shape-divider {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.shape-divider svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 60px;
+}
+
+/* Animated Background - Transisi Lebih Halus */
+.animated-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.animated-bg span {
+  position: absolute;
+  display: block;
+  width: 20px;
+  height: 20px;
+  background: rgba(79, 70, 229, 0.2);
+  animation: move 30s linear infinite; /* Durasi diperpanjang */
+  bottom: -150px;
+}
+
+.animated-bg span:nth-child(1) {
+  left: 25%;
+  width: 80px;
+  height: 80px;
+  background: rgba(79, 70, 229, 0.3);
+  animation-delay: 0s;
+}
+
+.animated-bg span:nth-child(2) {
+  left: 10%;
+  width: 20px;
+  height: 20px;
+  background: rgba(6, 182, 212, 0.3);
+  animation-delay: 2s;
+  animation-duration: 15s; /* Durasi diperpanjang */
+}
+
+.animated-bg span:nth-child(3) {
+  left: 70%;
+  width: 20px;
+  height: 20px;
+  background: rgba(30, 64, 175, 0.3);
+  animation-delay: 4s;
+}
+
+.animated-bg span:nth-child(4) {
+  left: 40%;
+  width: 60px;
+  height: 60px;
+  background: rgba(79, 70, 229, 0.2);
+  animation-delay: 0s;
+  animation-duration: 20s; /* Durasi diperpanjang */
+}
+
+.animated-bg span:nth-child(5) {
+  left: 65%;
+  width: 20px;
+  height: 20px;
+  background: rgba(6, 182, 212, 0.3);
+  animation-delay: 0s;
+}
+
+.animated-bg span:nth-child(6) {
+  left: 75%;
+  width: 90px;
+  height: 90px;
+  background: rgba(30, 64, 175, 0.2);
+  animation-delay: 3s;
+}
+
+.animated-bg span:nth-child(7) {
+  left: 35%;
+  width: 150px;
+  height: 150px;
+  background: rgba(79, 70, 229, 0.2);
+  animation-delay: 7s;
+}
+
+.animated-bg span:nth-child(8) {
+  left: 50%;
+  width: 25px;
+  height: 25px;
+  background: rgba(6, 182, 212, 0.3);
+  animation-delay: 15s;
+  animation-duration: 50s; /* Durasi diperpanjang */
+}
+
+.animated-bg span:nth-child(9) {
+  left: 20%;
+  width: 15px;
+  height: 15px;
+  background: rgba(30, 64, 175, 0.3);
+  animation-delay: 2s;
+  animation-duration: 40s; /* Durasi diperpanjang */
+}
+
+.animated-bg span:nth-child(10) {
+  left: 85%;
+  width: 150px;
+  height: 150px;
+  background: rgba(79, 70, 229, 0.2);
+  animation-delay: 0s;
+  animation-duration: 12s; /* Durasi diperpanjang */
+}
+
+@keyframes move {
+  0% {
+    transform: translateY(0) rotate(0deg);
+    opacity: 1;
+    border-radius: 0;
+  }
+  100% {
+    transform: translateY(-1000px) rotate(720deg);
+    opacity: 0;
+    border-radius: 50%;
+  }
+}
+
+/* Logo Header - Warna Lebih Terang */
+.gradient-bg.w-12.h-12.rounded-xl {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
+}
+
+.gradient-bg.w-12.h-12.rounded-xl span {
+  color: #FFFFFF;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Footer Logo - Warna Lebih Terang */
+.gradient-bg.w-14.h-14.rounded-xl {
+  background: linear-gradient(135deg, #4F46E5, #06B6D4);
+  box-shadow: 0 8px 16px rgba(79, 70, 229, 0.3);
+}
+
+.gradient-bg.w-14.h-14.rounded-xl span {
+  color: #FFFFFF;
+  font-weight: bold;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+}
+
+/* Improved footer styles */
+footer {
+  position: relative;
+  overflow: hidden;
+}
+
+footer h2 {
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+footer p {
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Contact card improvements */
+#kontak .bg-gradient-to-br {
+  box-shadow: 0 20px 40px rgba(30, 64, 175, 0.3);
+}
+
+#kontak .bg-gradient-to-br .flex.items-start {
+  transition: transform 0.5s ease; /* Transisi lebih halus */
+}
+
+#kontak .bg-gradient-to-br .flex.items-start:hover {
+  transform: translateX(5px);
+}
+
+/* Social media button improvements */
+#kontak a[href^="https://wa.me"],
+#kontak a[href^="https://instagram"],
+#kontak a[href^="https://facebook"],
+#kontak a[href^="https://tiktok"] {
+  transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Transisi lebih halus */
+}
+
+#kontak a[href^="https://wa.me"]:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(34, 197, 94, 0.4);
+}
+
+#kontak a[href^="https://instagram"]:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
+}
+
+#kontak a[href^="https://facebook"]:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(59, 130, 246, 0.4);
+}
+
+#kontak a[href^="https://tiktok"]:hover {
+  transform: translateY(-3px) scale(1.1);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+
+/* Icon container improvements */
+.bg-white\/20 {
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Text improvements for better readability */
+.text-white\/90 {
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+/* Hover effects for contact info */
+#kontak .flex.items-start:hover h3 {
+  color: #fbbf24;
+  transition: color 0.5s ease; /* Transisi lebih halus */
+}
+
+#kontak .flex.items-start:hover p {
+  color: #ffffff;
+  transition: color 0.5s ease; /* Transisi lebih halus */
 }
 
 /* Responsive adjustments */
 @media (max-width: 768px) {
-  .text-6xl { font-size: 2.5rem; }
+  .floating-1, .floating-2, .floating-3 {
+    display: none;
+  }
+  
+  .reveal-from-left, .reveal-from-right {
+    transform: translateY(30px);
+  }
+  
+  .reveal-from-left.active, .reveal-from-right.active {
+    transform: translateY(0);
+  }
+  
+  .section-divider {
+    margin: 40px 0;
+  }
+  
+  .shape-divider svg {
+    height: 40px;
+  }
+  
+  /* Mobile animation adjustments */
+  .animated-bg span {
+    animation-duration: 25s; /* Durasi lebih singkat di mobile */
+  }
 }
