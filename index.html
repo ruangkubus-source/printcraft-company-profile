@@ -1,748 +1,866 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <!-- SEO Meta Tags -->
-  <meta name="description" content="EdditanSimpel – Solusi percetakan & iklan kreatif untuk UMKM dan perusahaan.">
-  <meta property="og:title" content="EdditanSimpel – Percetakan Profesional">
-  <meta property="og:description" content="Cetak brosur, neon box, desain grafis, dan iklan outdoor dengan kualitas premium.">
-  <meta property="og:image" content="https://yourdomain.com/hero-slide1.jpg">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="canonical" href="https://yourdomain.com">
-  <title>EdditanSimpel – Solusi Percetakan & Iklan Kreatif</title>
-  <!-- Tailwind CSS via CDN -->
-  <script src="https://cdn.tailwindcss.com"></script>
-  <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
-  <!-- Font Awesome -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Custom CSS -->
-  <link rel="stylesheet" href="style.css">
-  <!-- Custom Tailwind Config -->
-  <script>
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            'primary-dark': '#0F172A',
-            'primary': '#1E40AF',
-            'secondary': '#4F46E5',
-            'accent': '#06B6D4',
-            'light-bg': '#F1F5F9',
-            'card-bg': '#FFFFFF',
-            'text-dark': '#334155',
-            'text-light': '#E2E8F0',
-            'border-light': '#CBD5E1',
-            'gradient-start': '#4F46E5',
-            'gradient-end': '#06B6D4',
-          },
-          fontFamily: {
-            inter: ['Inter', 'sans-serif'],
-            playfair: ['"Playfair Display"', 'serif'],
-          },
-          boxShadow: {
-            'soft': '0 4px 20px rgba(0, 0, 0, 0.08)',
-            'medium': '0 10px 30px rgba(0, 0, 0, 0.12)',
-            'strong': '0 20px 40px rgba(0, 0, 0, 0.15)',
-          },
-          animation: {
-            'float': 'float 6s ease-in-out infinite',
-            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
-            'fade-in': 'fadeIn 2s ease-out forwards',
-            'fade-up': 'fadeInUp 1.8s ease-out forwards',
-            'slide-in-left': 'slideInLeft 1.8s ease-out forwards',
-            'slide-in-right': 'slideInRight 1.8s ease-out forwards',
-          },
-          keyframes: {
-            float: {
-              '0%, 100%': { transform: 'translateY(0px)' },
-              '50%': { transform: 'translateY(-10px)' },
-            },
-            fadeIn: {
-              '0%': { opacity: '0' },
-              '100%': { opacity: '1' },
-            },
-            fadeInUp: {
-              '0%': { opacity: '0', transform: 'translateY(30px)' },
-              '100%': { opacity: '1', transform: 'translateY(0)' },
-            },
-            slideInLeft: {
-              '0%': { opacity: '0', transform: 'translateX(-50px)' },
-              '100%': { opacity: '1', transform: 'translateX(0)' },
-            },
-            slideInRight: {
-              '0%': { opacity: '0', transform: 'translateX(50px)' },
-              '100%': { opacity: '1', transform: 'translateX(0)' },
-            }
-          }
-        }
-      }
-    }
-  </script>
-  <!-- Google Analytics -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-XXXXXXXXXX');
-  </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EdditanSimpel | Jasa Percetakan & Desain Profesional</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
-<body class="font-inter text-text-dark relative overflow-x-hidden">
-  <!-- Scroll Progress Indicator -->
-  <div class="scroll-indicator">
-    <div class="scroll-progress"></div>
-  </div>
-  
-  <!-- Parallax Background -->
-  <div class="parallax-bg"></div>
-  
-  <!-- Animated Background Elements -->
-  <div class="animated-bg">
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-
-  <!-- Preloader -->
-  <div id="preloader" class="fixed inset-0 z-50 bg-white flex items-center justify-center">
-    <div class="relative w-16 h-16">
-      <div class="absolute inset-0 border-4 border-gradient-start border-t-transparent rounded-full animate-spin"></div>
-      <div class="absolute inset-2 border-4 border-gradient-end border-b-transparent rounded-full animate-spin-reverse"></div>
-    </div>
-  </div>
-
-  <!-- Promo Bar -->
-  <div id="promoBar" class="sticky top-0 z-50 bg-primary-dark text-text-light text-xs md:text-sm py-2 text-center shadow-md">
-    <div id="promoContainer" class="transition-opacity duration-700 ease-in-out max-w-4xl mx-auto px-4">
-      <span class="font-medium">🎉 Promo Spesial:</span> Diskon 25% untuk paket branding lengkap. Berlaku hingga 31 Desember 2025!
-    </div>
-  </div>
-
-  <!-- Header -->
-  <header class="sticky top-[32px] z-40 bg-card-bg/90 backdrop-blur-sm shadow-soft">
-    <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-      <div class="flex items-center space-x-3">
-        <!-- Logo Berwarna -->
-        <div class="gradient-bg w-12 h-12 rounded-xl flex items-center justify-center shadow-medium animate-float">
-          <span class="text-white text-lg font-bold font-inter">ES</span>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="preloader-content">
+            <div class="preloader-circle">
+                <div class="preloader-initials">ES</div>
+            </div>
+            <div class="preloader-text">EdditanSimpel</div>
         </div>
-        <h1 class="text-xl font-bold gradient-text font-playfair">EdditanSimpel</h1>
-      </div>
-
-      <nav class="hidden md:flex space-x-8">
-        <a href="#home" class="text-text-dark hover:text-primary transition-colors font-inter font-medium relative group">
-          Beranda
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-start to-gradient-end transition-all group-hover:w-full"></span>
-        </a>
-        <a href="#layanan" class="text-text-dark hover:text-primary transition-colors font-inter font-medium relative group">
-          Layanan
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-start to-gradient-end transition-all group-hover:w-full"></span>
-        </a>
-        <a href="#tentang" class="text-text-dark hover:text-primary transition-colors font-inter font-medium relative group">
-          Tentang
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-start to-gradient-end transition-all group-hover:w-full"></span>
-        </a>
-        <a href="#portofolio" class="text-text-dark hover:text-primary transition-colors font-inter font-medium relative group">
-          Portofolio
-          <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-gradient-start to-gradient-end transition-all group-hover:w-full"></span>
-        </a>
-      </nav>
-
-      <button id="ctaButton" class="hidden md:block btn-primary text-white px-6 py-2.5 rounded-lg font-inter font-semibold shadow-medium">
-        Kontak Kami
-      </button>
-
-      <button id="mobileMenuButton" class="md:hidden text-primary">
-        <i class="fas fa-bars text-xl"></i>
-      </button>
     </div>
 
-    <div id="mobileMenu" class="hidden md:hidden bg-card-bg border-t border-border-light">
-      <div class="container mx-auto px-4 py-4 flex flex-col space-y-4">
-        <a href="#home" class="text-text-dark hover:text-primary font-inter font-medium">Beranda</a>
-        <a href="#layanan" class="text-text-dark hover:text-primary font-inter font-medium">Layanan</a>
-        <a href="#tentang" class="text-text-dark hover:text-primary font-inter font-medium">Tentang</a>
-        <a href="#portofolio" class="text-text-dark hover:text-primary font-inter font-medium">Portofolio</a>
-        <button id="mobileCtaButton" class="btn-primary text-white px-4 py-2.5 rounded-lg font-inter font-semibold mt-2">
-          Hubungi Kami
-        </button>
-      </div>
-    </div>
-  </header>
+    <!-- Progress Bar -->
+    <div class="progress-bar"></div>
 
-  <!-- Hero Carousel - Transparansi Dikurangi -->
-  <section id="home" class="relative h-[70vh] md:h-[80vh] overflow-hidden">
     <!-- Floating Elements -->
-    <div class="floating-element floating-1"></div>
-    <div class="floating-element floating-2"></div>
-    <div class="floating-element floating-3"></div>
-    
-    <div id="heroSlides" class="absolute inset-0">
-      <!-- Slide 1 - Transparansi Dikurangi -->
-      <div class="hero-slide active">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/80 to-primary/80"></div>
-        <div class="absolute inset-0 opacity-30">
-          <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Tim PrintCraft" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-text-light max-w-2xl mx-auto">
-          <h1 class="text-3xl md:text-5xl font-bold mb-4 font-inter text-shadow animate-fade-in">Solusi Cetak & Iklan Terintegrasi</h1>
-          <p class="text-lg md:text-xl mb-6 font-inter text-shadow opacity-90 animate-fade-in">Wujudkan identitas brand Anda dengan hasil berkualitas premium</p>
-          <button onclick="scrollToSection('layanan')" class="btn-primary text-white px-8 py-3 rounded-lg font-medium text-lg shadow-medium animate-fade-in">
-            Jelajahi Layanan
-          </button>
-        </div>
-      </div>
-      <!-- Slide 2 - Transparansi Dikurangi -->
-      <div class="hero-slide">
-        <div class="absolute inset-0 bg-gradient-to-br from-primary/80 to-secondary/80"></div>
-        <div class="absolute inset-0 opacity-30">
-          <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Neon Box Restoran" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-text-light max-w-2xl mx-auto">
-          <h1 class="text-3xl md:text-5xl font-bold mb-4 font-inter text-shadow animate-fade-in">Iklan Visual yang Memukau</h1>
-          <p class="text-lg md:text-xl mb-6 font-inter text-shadow opacity-90 animate-fade-in">Tingkatkan visibilitas bisnis dengan media promosi efektif</p>
-          <button onclick="scrollToSection('kontak')" class="btn-primary text-white px-8 py-3 rounded-lg font-medium text-lg shadow-medium animate-fade-in">
-            Konsultasi Gratis
-          </button>
-        </div>
-      </div>
-      <!-- Slide 3 - Transparansi Dikurangi -->
-      <div class="hero-slide">
-        <div class="absolute inset-0 bg-gradient-to-br from-secondary/80 to-accent/80"></div>
-        <div class="absolute inset-0 opacity-30">
-          <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80" loading="lazy" alt="Desain Kemasan Kopi" class="w-full h-full object-cover">
-        </div>
-        <div class="absolute bottom-10 left-0 right-0 text-center px-4 text-text-light max-w-2xl mx-auto">
-          <h1 class="text-3xl md:text-5xl font-bold mb-4 font-inter text-shadow animate-fade-in">Desain yang Berbicara</h1>
-          <p class="text-lg md:text-xl mb-6 font-inter text-shadow opacity-90 animate-fade-in">Ciptakan kesan pertama yang tak terlupakan untuk brand Anda</p>
-          <button onclick="scrollToSection('layanan')" class="btn-primary text-white px-8 py-3 rounded-lg font-medium text-lg shadow-medium animate-fade-in">
-            Lihat Portfolio
-          </button>
-        </div>
-      </div>
+    <div class="floating-elements">
+        <div class="floating-element" style="width: 100px; height: 100px; top: 10%; left: 5%;"></div>
+        <div class="floating-element" style="width: 150px; height: 150px; top: 20%; right: 10%;"></div>
+        <div class="floating-element" style="width: 80px; height: 80px; bottom: 15%; left: 15%;"></div>
+        <div class="floating-element" style="width: 120px; height: 120px; bottom: 25%; right: 5%;"></div>
     </div>
 
-    <!-- Navigation Buttons -->
-    <button id="prevBtn" class="absolute left-4 top-1/2 transform -translate-y-1/2 glass-effect text-text-light p-3 rounded-full z-10 transition-all hover:bg-white/20">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-      </svg>
-    </button>
-    <button id="nextBtn" class="absolute right-4 top-1/2 transform -translate-y-1/2 glass-effect text-text-light p-3 rounded-full z-10 transition-all hover:bg-white/20">
-      <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-      </svg>
-    </button>
-
-    <!-- Dot Indicators -->
-    <div id="heroDots" class="absolute bottom-6 left-1/2 transform -translate-x-1/2 flex space-x-2 z-10"></div>
-    
-    <!-- Scroll Indicator -->
-    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
-      <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
-      </svg>
+    <!-- Back to Top Button -->
+    <div class="back-to-top">
+        <i class="fas fa-chevron-up"></i>
     </div>
-  </section>
 
-  <!-- Shape Divider -->
-  <div class="relative">
-    <div class="shape-divider">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-white"></path>
-      </svg>
+    <!-- Promo Bar -->
+    <div class="promo-bar">
+        <div class="container promo-container">
+            <div class="promo-slide active">
+                <div class="promo-text">
+                    🎉 <span class="promo-highlight">GRATIS</span> Konsultasi Desain untuk Setiap Pemesanan! Hubungi Kami Sekarang.
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="promo-text">
+                    ✨ <span class="promo-highlight">DISKON 20%</span> untuk Percetakan Packaging Pertama! Berlaku hingga 30 November.
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="promo-text">
+                    🚀 <span class="promo-highlight">Pengerjaan Cepat</span> 3-5 Hari untuk Semua Jenis Percetakan! Kualitas Terjamin.
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="promo-text">
+                    💼 <span class="promo-highlight">Paket Branding Lengkap</span> Mulai dari 1,5 Juta! Logo, Kartu Nama, Kop Surat.
+                </div>
+            </div>
+            <div class="promo-slide">
+                <div class="promo-text">
+                    📦 <span class="promo-highlight">Gratis Pengiriman</span> untuk Pemesanan di Atas 2 Juta! Area Jabodetabek.
+                </div>
+            </div>
+        </div>
     </div>
-  </div>
 
-  <!-- Layanan -->
-  <section id="layanan" class="py-20 bg-light-bg relative">
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="text-center mb-16 reveal reveal-from-bottom">
-        <h2 class="text-4xl font-bold mb-4 gradient-text">Layanan Unggulan Kami</h2>
-        <p class="text-lg text-text-dark max-w-2xl mx-auto">Solusi lengkap untuk membangun identitas brand yang kuat dan profesional</p>
-      </div>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-        <div class="bg-card-bg p-8 rounded-2xl shadow-soft card-hover border border-border-light reveal reveal-from-bottom" style="transition-delay: 0.1s">
-          <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-medium">
-            <i class="fas fa-print text-white text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3 text-text-dark">Percetakan Premium</h3>
-          <p class="text-text-dark mb-4">Hasil cetak berkualitas tinggi untuk kartu nama, brosur, katalog, dan materi promosi lainnya dengan teknologi digital terkini.</p>
-          <a href="#" class="text-primary font-medium flex items-center hover:text-accent transition-colors">
-            Pelajari detail <i class="fas fa-arrow-right ml-2"></i>
-          </a>
+    <!-- Header -->
+    <header id="header">
+        <div class="container">
+            <nav class="navbar">
+                <a href="#" class="logo">EdditanSimpel</a>
+                
+                <ul class="nav-menu">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">Tentang Kami</a></li>
+                    <li><a href="#services" class="nav-link">Layanan</a></li>
+                    <li><a href="#materials" class="nav-link">Bahan Cetak</a></li>
+                    <li><a href="#process" class="nav-link">Proses</a></li>
+                    <li><a href="#portfolio" class="nav-link">Portfolio</a></li>
+                    <li><a href="#contact" class="nav-link">Kontak</a></li>
+                </ul>
+                
+                <div class="nav-toggle" id="navToggle">
+                    <i class="fas fa-bars"></i>
+                </div>
+            </nav>
         </div>
-        <div class="bg-card-bg p-8 rounded-2xl shadow-soft card-hover border border-border-light reveal reveal-from-bottom" style="transition-delay: 0.2s">
-          <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-medium">
-            <i class="fas fa-bullhorn text-white text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3 text-text-dark">Iklan Outdoor</h3>
-          <p class="text-text-dark mb-4">Spanduk, baliho, neon box, dan signage untuk promosi bisnis Anda di ruang publik dengan desain menarik dan material berkualitas.</p>
-          <a href="#" class="text-primary font-medium flex items-center hover:text-accent transition-colors">
-            Pelajari detail <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
-        <div class="bg-card-bg p-8 rounded-2xl shadow-soft card-hover border border-border-light reveal reveal-from-bottom" style="transition-delay: 0.3s">
-          <div class="gradient-bg w-16 h-16 rounded-xl flex items-center justify-center mb-6 shadow-medium">
-            <i class="fas fa-paint-brush text-white text-2xl"></i>
-          </div>
-          <h3 class="text-xl font-semibold mb-3 text-text-dark">Desain Grafis</h3>
-          <p class="text-text-dark mb-4">Desain logo, kemasan, media sosial, hingga identitas visual yang mencerminkan brand Anda dengan sentuhan kreatif dan profesional.</p>
-          <a href="#" class="text-primary font-medium flex items-center hover:text-accent transition-colors">
-            Pelajari detail <i class="fas fa-arrow-right ml-2"></i>
-          </a>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Floating Elements -->
-    <div class="absolute top-0 left-0 w-64 h-64 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 blur-3xl"></div>
-    <div class="absolute bottom-0 right-0 w-96 h-96 rounded-full bg-gradient-to-r from-secondary/10 to-accent/10 blur-3xl"></div>
-  </section>
+    </header>
 
-  <!-- Section Divider -->
-  <div class="section-divider"></div>
-
-  <!-- Tentang -->
-  <section id="tentang" class="py-20 bg-gradient-to-br from-primary to-secondary text-text-light relative overflow-hidden">
-    <!-- Floating Elements -->
-    <div class="absolute top-20 right-20 w-80 h-80 rounded-full bg-white/10 blur-3xl"></div>
-    <div class="absolute bottom-20 left-20 w-64 h-64 rounded-full bg-accent/10 blur-3xl"></div>
-    
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="flex flex-col md:flex-row items-center gap-12">
-        <div class="md:w-1/2 reveal reveal-from-left">
-          <div class="relative">
-            <img src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80" alt="Tim EdditanSimpel" class="rounded-2xl shadow-strong w-full" loading="lazy">
-            <div class="absolute -bottom-6 -right-6 bg-accent text-primary-dark rounded-xl p-4 shadow-medium animate-pulse-slow">
-              <div class="text-2xl font-bold">8+</div>
-              <div class="text-sm">Tahun Pengalaman</div>
+    <!-- Hero Slider -->
+    <section class="hero-slider" id="home">
+        <div class="hero-slide active" style="background-image: url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Solusi <span>Percetakan</span> & Desain Profesional</h1>
+                    <p class="hero-subtitle">Kami menyediakan jasa desain grafis dan percetakan berkualitas tinggi untuk kebutuhan bisnis dan personal Anda. Dari brosur hingga packaging, kami siap mewujudkan ide Anda dengan hasil yang memukau.</p>
+                    <div class="hero-buttons">
+                        <a href="#portfolio" class="btn btn-primary">Lihat Karya Kami</a>
+                        <a href="#contact" class="btn btn-secondary">Konsultasi Gratis</a>
+                    </div>
+                </div>
             </div>
-          </div>
-        </div>
-        <div class="md:w-1/2 reveal reveal-from-right">
-          <h2 class="text-4xl font-bold mb-6">Mengapa Memilih EdditanSimpel?</h2>
-          <p class="mb-4 text-lg opacity-90">
-            Sejak 2015, kami telah menjadi mitra terpercaya bagi ratusan UMKM dan perusahaan dalam mengembangkan identitas visual yang kuat. Tim profesional kami menggabungkan kreativitas, teknologi terkini, dan pemahaman mendalam tentang pasar untuk menghasilkan solusi percetakan dan iklan yang efektif.
-          </p>
-          <p class="mb-8 text-lg opacity-90">
-            Kami percaya bahwa setiap brand memiliki cerita unik. Melalui pendekatan personal dan kolaboratif, kami membantu mewujudkan visi Anda menjadi karya visual yang memukau dan berdampak.
-          </p>
-          <div class="flex flex-wrap gap-6">
-            <div class="glass-effect rounded-xl p-4 text-center flex-1 min-w-[120px] border border-white/20">
-              <div class="text-3xl font-bold mb-1 text-accent">500+</div>
-              <div class="text-sm">Proyek Selesai</div>
-            </div>
-            <div class="glass-effect rounded-xl p-4 text-center flex-1 min-w-[120px] border border-white/20">
-              <div class="text-3xl font-bold mb-1 text-accent">95%</div>
-              <div class="text-sm">Klien Puas</div>
-            </div>
-            <div class="glass-effect rounded-xl p-4 text-center flex-1 min-w-[120px] border border-white/20">
-              <div class="text-3xl font-bold mb-1 text-accent">24/7</div>
-              <div class="text-sm">Support</div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Shape Divider -->
-  <div class="relative">
-    <div class="shape-divider">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M0,0V46.29c47.79,22.2,103.59,32.17,158,28,70.36-5.37,136.33-33.31,206.8-37.5C438.64,32.43,512.34,53.67,583,72.05c69.27,18,138.3,24.88,209.4,13.08,36.15-6,69.85-17.84,104.45-29.34C989.49,25,1113-14.29,1200,52.47V0Z" opacity=".25" class="fill-light-bg"></path>
-        <path d="M0,0V15.81C13,36.92,27.64,56.86,47.69,72.05,99.41,111.27,165,111,224.58,91.58c31.15-10.15,60.09-26.07,89.67-39.8,40.92-19,84.73-46,130.83-49.67,36.26-2.85,70.9,9.42,98.6,31.56,31.77,25.39,62.32,62,103.63,73,40.44,10.79,81.35-6.69,119.13-24.28s75.16-39,116.92-43.05c59.73-5.85,113.28,22.88,168.9,38.84,30.2,8.66,59,6.17,87.09-7.5,22.43-10.89,48-26.93,60.65-49.24V0Z" opacity=".5" class="fill-light-bg"></path>
-        <path d="M0,0V5.63C149.93,59,314.09,71.32,475.83,42.57c43-7.64,84.23-20.12,127.61-26.46,59-8.63,112.48,12.24,165.56,35.4C827.93,77.22,886,95.24,951.2,90c86.53-7,172.46-45.71,248.8-84.81V0Z" class="fill-light-bg"></path>
-      </svg>
-    </div>
-  </div>
-
-  <!-- Portofolio -->
-  <section id="portofolio" class="py-20 bg-light-bg relative">
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="text-center mb-16 reveal reveal-from-bottom">
-        <h2 class="text-4xl font-bold mb-4 gradient-text">Karya Terbaik Kami</h2>
-        <p class="text-lg text-text-dark max-w-2xl mx-auto">Hasil karya yang menginspirasi dan memberikan dampak nyata bagi bisnis klien</p>
-      </div>
-      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-        <!-- Portfolio Item 1 -->
-        <div class="portfolio-item rounded-2xl overflow-hidden shadow-soft card-hover reveal reveal-from-bottom" style="transition-delay: 0.1s">
-          <div class="relative group">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Identitas Brand Chikin Farm" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div class="text-white">
-                <h3 class="font-bold text-lg mb-1">Identitas Brand Chikin Farm</h3>
-                <p class="text-sm opacity-90">Branding • Print Design</p>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 bg-card-bg">
-            <h3 class="font-bold text-lg mb-2 text-text-dark">Identitas Brand Chikin Farm</h3>
-            <p class="text-text-dark mb-4">Desain lengkap dari logo hingga materi promosi</p>
-            <div class="flex items-center text-sm text-text-dark">
-              <i class="fas fa-tag mr-2 text-accent"></i>
-              <span>Branding • Print Design</span>
-            </div>
-          </div>
         </div>
         
-        <!-- Portfolio Item 2 -->
-        <div class="portfolio-item rounded-2xl overflow-hidden shadow-soft card-hover reveal reveal-from-bottom" style="transition-delay: 0.2s">
-          <div class="relative group">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Neon Box Warung Sunda Enak" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div class="text-white">
-                <h3 class="font-bold text-lg mb-1">Neon Box Warung Sunda Enak</h3>
-                <p class="text-sm opacity-90">Outdoor Advertising • Signage</p>
-              </div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1587334984005-5eb24527d1c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Desain <span>Kreatif</span> untuk Brand Anda</h1>
+                    <p class="hero-subtitle">Tim desainer kami siap membantu menciptakan identitas visual yang kuat dan menarik untuk bisnis Anda. Logo, branding, dan materi promosi yang profesional.</p>
+                    <div class="hero-buttons">
+                        <a href="#services" class="btn btn-primary">Lihat Layanan</a>
+                        <a href="#contact" class="btn btn-secondary">Pesan Sekarang</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="p-6 bg-card-bg">
-            <h3 class="font-bold text-lg mb-2 text-text-dark">Neon Box Warung Sunda Enak</h3>
-            <p class="text-text-dark mb-4">Pemasangan neon box untuk restoran tradisional</p>
-            <div class="flex items-center text-sm text-text-dark">
-              <i class="fas fa-tag mr-2 text-accent"></i>
-              <span>Outdoor Advertising • Signage</span>
-            </div>
-          </div>
         </div>
         
-        <!-- Portfolio Item 3 -->
-        <div class="portfolio-item rounded-2xl overflow-hidden shadow-soft card-hover reveal reveal-from-bottom" style="transition-delay: 0.3s">
-          <div class="relative group">
-            <img src="https://images.unsplash.com/photo-1551836022-d5d88e9218df?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kemasan Kopi Gunung" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div class="text-white">
-                <h3 class="font-bold text-lg mb-1">Kemasan Kopi Gunung</h3>
-                <p class="text-sm opacity-90">Package Design • Branding</p>
-              </div>
+        <div class="hero-slide" style="background-image: url('https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80')">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title">Packaging & <span>Kemasan</span> Berkualitas</h1>
+                    <p class="hero-subtitle">Tingkatkan nilai produk Anda dengan kemasan yang menarik dan fungsional. Berbagai pilihan bahan dan finishing untuk kebutuhan bisnis Anda.</p>
+                    <div class="hero-buttons">
+                        <a href="#materials" class="btn btn-primary">Lihat Bahan</a>
+                        <a href="#contact" class="btn btn-secondary">Konsultasi Gratis</a>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="p-6 bg-card-bg">
-            <h3 class="font-bold text-lg mb-2 text-text-dark">Kemasan Kopi Gunung</h3>
-            <p class="text-text-dark mb-4">Desain kemasan premium untuk produk kopi lokal</p>
-            <div class="flex items-center text-sm text-text-dark">
-              <i class="fas fa-tag mr-2 text-accent"></i>
-              <span>Package Design • Branding</span>
-            </div>
-          </div>
         </div>
         
-        <!-- Portfolio Item 4 -->
-        <div class="portfolio-item rounded-2xl overflow-hidden shadow-soft card-hover reveal reveal-from-bottom" style="transition-delay: 0.4s">
-          <div class="relative group">
-            <img src="https://images.unsplash.com/photo-1587614382346-4ec70e388b28?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Website Profile Perusahaan" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div class="text-white">
-                <h3 class="font-bold text-lg mb-1">Website Profile Perusahaan</h3>
-                <p class="text-sm opacity-90">Web Design • UI/UX</p>
-              </div>
+        <div class="slider-dots">
+            <div class="slider-dot active" data-slide="0"></div>
+            <div class="slider-dot" data-slide="1"></div>
+            <div class="slider-dot" data-slide="2"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="section about" id="about">
+        <div class="container">
+            <h2 class="section-title fade-in">Tentang Kami</h2>
+            <div class="about-content">
+                <div class="about-image slide-in-left">
+                    <img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Tim EdditanSimpel">
+                </div>
+                <div class="about-text slide-in-right">
+                    <h3>Mengapa Memilih EdditanSimpel?</h3>
+                    <p>EdditanSimpel hadir sebagai solusi percetakan dan desain profesional yang mengedepankan kualitas, kreativitas, dan kemudahan. Dengan pengalaman lebih dari 5 tahun di industri kreatif, kami telah membantu ratusan bisnis dalam membangun identitas visual yang kuat dan menarik.</p>
+                    <p>Nama "EdditanSimpel" mencerminkan filosofi kami: memberikan hasil yang <strong>edgy</strong> dan modern, dengan proses yang <strong>sederhana</strong> dan mudah dipahami. Kami percaya bahwa desain dan percetakan yang berkualitas tidak harus rumit.</p>
+                    
+                    <div class="about-features">
+                        <div class="about-feature fade-in">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Kreatif & Inovatif</h4>
+                                <p>Tim desainer kami selalu mengikuti tren terbaru untuk memberikan solusi visual yang fresh dan relevan.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature fade-in">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Tepat Waktu</h4>
+                                <p>Kami menghargai waktu Anda dengan proses pengerjaan yang efisien dan tepat waktu.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature fade-in">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-medal"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Kualitas Premium</h4>
+                                <p>Menggunakan bahan terbaik dan teknologi percetakan mutakhir untuk hasil yang maksimal.</p>
+                            </div>
+                        </div>
+                        <div class="about-feature fade-in">
+                            <div class="about-feature-icon">
+                                <i class="fas fa-handshake"></i>
+                            </div>
+                            <div class="about-feature-content">
+                                <h4>Pelayanan Terbaik</h4>
+                                <p>Kami selalu siap mendengarkan kebutuhan Anda dan memberikan solusi yang tepat.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="p-6 bg-card-bg">
-            <h3 class="font-bold text-lg mb-2 text-text-dark">Website Profile Perusahaan</h3>
-            <p class="text-text-dark mb-4">Desain website modern untuk perusahaan teknologi</p>
-            <div class="flex items-center text-sm text-text-dark">
-              <i class="fas fa-tag mr-2 text-accent"></i>
-              <span>Web Design • UI/UX</span>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="section services" id="services">
+        <div class="container">
+            <h2 class="section-title fade-in">Layanan Kami</h2>
+            <div class="services-container">
+                <div class="services-carousel">
+                    <div class="carousel-nav prev" id="prevService">
+                        <i class="fas fa-chevron-left"></i>
+                    </div>
+                    <div class="services-track" id="servicesTrack">
+                        <div class="service-card">
+                            <div class="service-img">
+                                <i class="fas fa-print"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Percetakan Offset & Digital</h3>
+                                <p>Cetak brosur, leaflet, kartu nama, poster, dan berbagai media promosi dengan kualitas tinggi.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-img">
+                                <i class="fas fa-tshirt"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Sablon & Konveksi</h3>
+                                <p>Sablon kaos, jaket, topi, dan produk konveksi lainnya dengan berbagai teknik printing.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-img">
+                                <i class="fas fa-box-open"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Packaging & Kemasan</h3>
+                                <p>Desain dan cetak kemasan produk yang menarik dan fungsional untuk berbagai jenis usaha.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-img">
+                                <i class="fas fa-book"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Percetakan Buku & Majalah</h3>
+                                <p>Cetak buku, katalog, majalah, dan publikasi lainnya dengan finishing lengkap.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-img">
+                                <i class="fas fa-pencil-alt"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Desain Grafis</h3>
+                                <p>Jasa desain logo, branding, materi promosi, dan visual identity untuk bisnis Anda.</p>
+                            </div>
+                        </div>
+                        
+                        <div class="service-card">
+                            <div class="service-img">
+                                <i class="fas fa-sign"></i>
+                            </div>
+                            <div class="service-content">
+                                <h3 class="service-title">Signage & Spanduk</h3>
+                                <p>Pembuatan signage, spanduk, banner, neon box, dan berbagai media promosi luar ruangan.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="carousel-nav next" id="nextService">
+                        <i class="fas fa-chevron-right"></i>
+                    </div>
+                </div>
+                
+                <div class="carousel-dots" id="servicesDots">
+                    <!-- Dots will be generated by JavaScript -->
+                </div>
             </div>
-          </div>
+        </div>
+    </section>
+
+    <!-- Materials Section -->
+    <section class="section materials" id="materials">
+        <div class="container">
+            <h2 class="section-title fade-in">Bahan & Material Cetak</h2>
+            <div class="materials-grid">
+                <div class="material-card zoom-in">
+                    <div class="material-icon">
+                        <i class="fas fa-file-alt"></i>
+                    </div>
+                    <h3 class="material-title">Kertas</h3>
+                    <p>Art paper, matt paper, HVS, ivory, concorde, duplex, dan berbagai jenis kertas khusus.</p>
+                </div>
+                
+                <div class="material-card zoom-in">
+                    <div class="material-icon">
+                        <i class="fas fa-scroll"></i>
+                    </div>
+                    <h3 class="material-title">Vinyl & Sticker</h3>
+                    <p>Berbagai jenis vinyl, sticker permanen, removable, transparan, dan reflective.</p>
+                </div>
+                
+                <div class="material-card zoom-in">
+                    <div class="material-icon">
+                        <i class="fas fa-th-large"></i>
+                    </div>
+                    <h3 class="material-title">Akrilik & PVC</h3>
+                    <p>Material akrilik, PVC foam, mika, dan board untuk signage dan display.</p>
+                </div>
+                
+                <div class="material-card zoom-in">
+                    <div class="material-icon">
+                        <i class="fas fa-tshirt"></i>
+                    </div>
+                    <h3 class="material-title">Textile</h3>
+                    <p>Kain katun, TC, polyester, dan bahan textile lainnya untuk produk konveksi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="section process" id="process">
+        <div class="container">
+            <h2 class="section-title fade-in">Proses Pengerjaan</h2>
+            <div class="process-steps">
+                <div class="process-step fade-in">
+                    <div class="step-number">1</div>
+                    <h3 class="step-title">Konsultasi</h3>
+                    <p>Diskusikan kebutuhan dan konsep desain yang Anda inginkan</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">2</div>
+                    <h3 class="step-title">Desain</h3>
+                    <p>Tim desainer kami membuat konsep sesuai permintaan Anda</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">3</div>
+                    <h3 class="step-title">Proofing</h3>
+                    <p>Anda mengecek dan memberikan approval sebelum dicetak</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">4</div>
+                    <h3 class="step-title">Produksi</h3>
+                    <p>Proses cetak dengan mesin dan bahan terbaik</p>
+                </div>
+                
+                <div class="process-step fade-in">
+                    <div class="step-number">5</div>
+                    <h3 class="step-title">Pengiriman</h3>
+                    <p>Pesanan selesai dan siap dikirim ke lokasi Anda</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section portfolio" id="portfolio">
+        <div class="container">
+            <h2 class="section-title fade-in">Portfolio Kami</h2>
+            <p class="section-subtitle fade-in" style="text-align: center; max-width: 700px; margin: 0 auto 40px; color: var(--text-light);">
+                Jelajahi berbagai proyek desain dan percetakan yang telah kami selesaikan untuk klien dari berbagai industri.
+            </p>
+            
+            <div class="portfolio-filter fade-in">
+                <button class="filter-btn active" data-filter="all">Semua</button>
+                <button class="filter-btn" data-filter="branding">Branding</button>
+                <button class="filter-btn" data-filter="packaging">Packaging</button>
+                <button class="filter-btn" data-filter="printing">Percetakan</button>
+                <button class="filter-btn" data-filter="signage">Signage</button>
+            </div>
+            
+            <div class="portfolio-grid">
+                <div class="portfolio-item zoom-in" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1634942537034-2531766767d1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1540&q=80" alt="Branding Perusahaan" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Branding</span>
+                        <h3 class="portfolio-title">Identitas Visual Perusahaan</h3>
+                        <p class="portfolio-desc">Desain logo, kartu nama, dan stationery untuk perusahaan teknologi.</p>
+                        <div class="portfolio-actions">
+                            <div class="portfolio-btn view-details" data-project="1">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <a href="#" class="portfolio-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item zoom-in" data-category="packaging">
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Packaging Produk" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Packaging</span>
+                        <h3 class="portfolio-title">Kemasan Produk Makanan</h3>
+                        <p class="portfolio-desc">Desain kemasan untuk produk makanan organik dengan gaya minimalis.</p>
+                        <div class="portfolio-actions">
+                            <div class="portfolio-btn view-details" data-project="2">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <a href="#" class="portfolio-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item zoom-in" data-category="printing">
+                    <img src="https://images.unsplash.com/photo-1587334984005-5eb24527d1c4?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1774&q=80" alt="Buku dan Katalog" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Percetakan</span>
+                        <h3 class="portfolio-title">Buku Perusahaan & Katalog</h3>
+                        <p class="portfolio-desc">Percetakan buku profil perusahaan dan katalog produk dengan finishing premium.</p>
+                        <div class="portfolio-actions">
+                            <div class="portfolio-btn view-details" data-project="3">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <a href="#" class="portfolio-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item zoom-in" data-category="signage">
+                    <img src="https://images.unsplash.com/photo-1606857521015-7f9fcf423740?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Signage Toko" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Signage</span>
+                        <h3 class="portfolio-title">Signage & Display Toko</h3>
+                        <p class="portfolio-desc">Pembuatan signage dan display untuk toko retail dengan material akrilik.</p>
+                        <div class="portfolio-actions">
+                            <div class="portfolio-btn view-details" data-project="4">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <a href="#" class="portfolio-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item zoom-in" data-category="branding">
+                    <img src="https://images.unsplash.com/photo-1565688534245-05d6b5be184a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Branding Cafe" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Branding</span>
+                        <h3 class="portfolio-title">Branding Kafe & Restoran</h3>
+                        <p class="portfolio-desc">Identitas visual lengkap untuk kafe dengan konsep industrial modern.</p>
+                        <div class="portfolio-actions">
+                            <div class="portfolio-btn view-details" data-project="5">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <a href="#" class="portfolio-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="portfolio-item zoom-in" data-category="packaging">
+                    <img src="https://images.unsplash.com/photo-1559056199-641a0ac8b55e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1770&q=80" alt="Packaging Kosmetik" class="portfolio-img">
+                    <div class="portfolio-content">
+                        <span class="portfolio-category">Packaging</span>
+                        <h3 class="portfolio-title">Kemasan Produk Kosmetik</h3>
+                        <p class="portfolio-desc">Desain kemasan premium untuk produk skincare dengan finishing khusus.</p>
+                        <div class="portfolio-actions">
+                            <div class="portfolio-btn view-details" data-project="6">
+                                <i class="fas fa-expand"></i>
+                            </div>
+                            <a href="#" class="portfolio-btn">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Portfolio Modal -->
+    <div class="portfolio-modal" id="portfolioModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 class="modal-title" id="modalProjectTitle">Judul Proyek</h2>
+                <div class="modal-close" id="modalClose">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+            <div class="modal-body">
+                <div class="modal-image">
+                    <img id="modalProjectImage" src="" alt="Project Image">
+                </div>
+                <div class="modal-details">
+                    <h3>Tentang Proyek</h3>
+                    <p id="modalProjectDesc">Deskripsi proyek akan muncul di sini.</p>
+                    
+                    <h3>Detail Pengerjaan</h3>
+                    <div class="modal-features">
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Waktu Pengerjaan: <strong id="modalProjectTime">2 minggu</strong></span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Klien: <strong id="modalProjectClient">Nama Klien</strong></span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Jenis Layanan: <strong id="modalProjectService">Branding</strong></span>
+                        </div>
+                        <div class="modal-feature">
+                            <i class="fas fa-check-circle"></i>
+                            <span>Tahun: <strong id="modalProjectYear">2023</strong></span>
+                        </div>
+                    </div>
+                    
+                    <h3>Teknologi & Material</h3>
+                    <p id="modalProjectTech">Material dan teknologi yang digunakan dalam proyek.</p>
+                    
+                    <div class="modal-actions">
+                        <a href="#contact" class="btn btn-primary">Pesan Layanan Serupa</a>
+                        <a href="#" class="btn btn-secondary">Lihat Proyek Lainnya</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+      <!-- Testimonials Section - Enhanced with Smooth Transitions -->
+    <section class="section testimonials" id="testimonials">
+        <div class="container">
+            <h2 class="section-title fade-in">Apa Kata Klien Kami</h2>
+            <div class="testimonial-slider crossfade" id="testimonialSlider">
+                <div class="testimonial-item active">
+                    <p class="testimonial-text">"EdditanSimpel selalu menjadi partner percetakan kami. Hasil cetaknya tajam, warna konsisten, dan selalu tepat waktu. Desainernya juga sangat membantu mengembangkan konsep yang sesuai dengan brand kami. Pelayanan yang diberikan sangat memuaskan!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DS</div>
+                        <div class="author-info">
+                            <h4>Desi</h4>
+                            <p>Pemilik, Chikin SmartFarm</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"Saya sangat terkesan dengan kualitas kemasan yang dibuat oleh EdditanSimpel. Desainnya modern dan sesuai dengan konsep brand saya. Proses pengerjaan cepat dan hasilnya melebihi ekspektasi. Pasti akan order lagi untuk produk selanjutnya!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">AS</div>
+                        <div class="author-info">
+                            <h4>Ahmad Santoso</h4>
+                            <p>Founder, Organic Delights</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="testimonial-item">
+                    <p class="testimonial-text">"Tim EdditanSimpel membantu kami membuat identitas visual yang kuat untuk kafe baru kami. Dari logo, menu, hingga merchandise, semuanya konsisten dan mencerminkan karakter kafe. Prosesnya menyenangkan dan hasilnya profesional. Highly recommended!"</p>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">DW</div>
+                        <div class="author-info">
+                            <h4>Dewi Wijaya</h4>
+                            <p>Pemilik, Brew & Bites Cafe</p>
+                            <div class="testimonial-rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section - Modern Redesign -->
+    <section class="section contact" id="contact">
+        <div class="container">
+            <h2 class="section-title fade-in">Hubungi Kami</h2>
+            <p class="section-subtitle fade-in" style="text-align: center; max-width: 700px; margin: 0 auto 60px; color: var(--text-light);">
+                Mari berkolaborasi! Hubungi kami untuk konsultasi gratis dan diskusikan proyek Anda.
+            </p>
+            
+            <div class="contact-grid">
+                <div class="contact-info slide-in-left">
+                    <div class="contact-header">
+                        <h3>Mari Berbicara</h3>
+                        <p>Kami siap membantu mewujudkan ide dan proyek Anda. Hubungi kami melalui berbagai cara di bawah ini.</p>
+                    </div>
+                    
+                    <div class="contact-methods">
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Lokasi Kami</h4>
+                                <p>Jl. Percetakan No. 45, Jakarta Puset<br>DKI Jakarta, 10110</p>
+                                <a href="https://maps.google.com" target="_blank">Lihat di Peta →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Telepon & WhatsApp</h4>
+                                <p>+62 21 1234 5678<br>+62 812 3456 7890</p>
+                                <a href="https://wa.me/6281234567890" target="_blank">Chat via WhatsApp →</a>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-method">
+                            <div class="contact-method-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div class="contact-method-content">
+                                <h4>Email Kami</h4>
+                                <p>info@edditansimpel.com<br>order@edditansimpel.com</p>
+                                <a href="mailto:info@edditansimpel.com">Kirim Email →</a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="business-hours">
+                        <h4><i class="fas fa-clock"></i> Jam Operasional</h4>
+                        <div class="hours-list">
+                            <div class="hour-item">
+                                <span class="day">Senin - Jumat</span>
+                                <span class="time">08.00 - 17.00</span>
+                            </div>
+                            <div class="hour-item">
+                                <span class="day">Sabtu</span>
+                                <span class="time">08.00 - 14.00</span>
+                            </div>
+                            <div class="hour-item">
+                                <span class="day">Minggu & Hari Libur</span>
+                                <span class="time">Tutup</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form-container slide-in-right">
+                    <div class="form-header">
+                        <h3>Kirim Pesan</h3>
+                        <p>Isi formulir di bawah ini dan kami akan merespons dalam 1x24 jam.</p>
+                    </div>
+                    
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="name" required placeholder=" ">
+                                <label for="name" class="form-label">Nama Lengkap</label>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" class="form-control" id="email" required placeholder=" ">
+                                <label for="email" class="form-label">Alamat Email</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-row">
+                            <div class="form-group">
+                                <input type="tel" class="form-control" id="phone" required placeholder=" ">
+                                <label for="phone" class="form-label">Nomor Telepon</label>
+                            </div>
+                            <div class="form-group">
+                                <select class="form-control form-select" id="service" required>
+                                    <option value="" disabled selected></option>
+                                    <option>Percetakan Offset & Digital</option>
+                                    <option>Sablon & Konveksi</option>
+                                    <option>Packaging & Kemasan</option>
+                                    <option>Percetakan Buku & Majalah</option>
+                                    <option>Desain Grafis</option>
+                                    <option>Signage & Spanduk</option>
+                                    <option>Konsultasi Desain</option>
+                                </select>
+                                <label for="service" class="form-label">Jenis Layanan</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="text" class="form-control" id="subject" required placeholder=" ">
+                            <label for="subject" class="form-label">Subjek Pesan</label>
+                        </div>
+                        
+                        <div class="form-group">
+                            <textarea class="form-control" id="message" required placeholder=" " rows="5"></textarea>
+                            <label for="message" class="form-label">Deskripsi Proyek</label>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">
+                            <i class="fas fa-paper-plane"></i>
+                            Kirim Permintaan
+                        </button>
+                        
+                        <p class="form-notice">
+                            Dengan mengirim formulir, Anda menyetujui <a href="#">kebijakan privasi</a> kami.
+                        </p>
+                    </form>
+                </div>
+            </div>
+            
+            <div class="map-container zoom-in">
+                <div class="map-placeholder">
+                    <i class="fas fa-map-marked-alt" style="font-size: 3rem; margin-bottom: 20px;"></i>
+                    <h3>Lokasi Kami di Surakarta</h3>
+                    <p>Kunjungi workshop kami untuk konsultasi langsung</p>
+                </div>
+                <div class="map-overlay">
+                    <h3>Kunjungi Workshop Kami</h3>
+                    <p>Jl. Percetakan No. 45, Jakarta Pusat. Kami dengan senang hati akan menerima kunjungan Anda selama jam operasional.</p>
+                    <a href="https://www.google.com/maps/place/Surakarta,+Surakarta+City,+Central+Java/@-7.559122,110.777612,13z/data=!3m1!4b1!4m6!3m5!1s0x2e7a16627ad11ab1:0xe7fe4e0454bc3095!8m2!3d-7.5754887!4d110.8243272!16s%2Fg%2F11bc63v5pc?entry=tts&g_ep=EgoyMDI1MTAwNy4wIPu8ASoASAFQAw%3D%3D&skid=f3eab21c-5251-440b-a629-3b470ca0dba1" target="_blank" class="btn btn-primary">Dapatkan Petunjuk Arah</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section - Modern Redesign -->
+    <footer>
+        <div class="footer-wave">
+            <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
+                <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="shape-fill"></path>
+            </svg>
         </div>
         
-        <!-- Portfolio Item 5 -->
-        <div class="portfolio-item rounded-2xl overflow-hidden shadow-soft card-hover reveal reveal-from-bottom" style="transition-delay: 0.5s">
-          <div class="relative group">
-            <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Workshop Percetakan Digital" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div class="text-white">
-                <h3 class="font-bold text-lg mb-1">Workshop Percetakan Digital</h3>
-                <p class="text-sm opacity-90">Training • Education</p>
-              </div>
+        <div class="container">
+            <div class="footer-main fade-in">
+                <div class="footer-brand">
+                    <a href="#" class="footer-logo">EdditanSimpel</a>
+                    <p class="footer-tagline">
+                        Solusi percetakan dan desain profesional untuk kebutuhan bisnis dan personal Anda. 
+                        Dengan pengalaman lebih dari 5 tahun, kami berkomitmen memberikan hasil terbaik 
+                        dengan proses yang sederhana dan harga yang kompetitif.
+                    </p>
+                </div>
+                
+                <div class="footer-cta">
+                    <a href="#contact" class="btn btn-primary">Konsultasi Gratis</a>
+                    <a href="#portfolio" class="btn btn-secondary">Lihat Portfolio</a>
+                </div>
+                
+                <div class="footer-social">
+                    <a href="#" class="social-link facebook" aria-label="Facebook">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="social-link instagram" aria-label="Instagram">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="social-link whatsapp" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp"></i>
+                    </a>
+                    <a href="#" class="social-link youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                    <a href="#" class="social-link linkedin" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                </div>
             </div>
-          </div>
-          <div class="p-6 bg-card-bg">
-            <h3 class="font-bold text-lg mb-2 text-text-dark">Workshop Percetakan Digital</h3>
-            <p class="text-text-dark mb-4">Pelatihan intensif untuk UMKM dan mahasiswa</p>
-            <div class="flex items-center text-sm text-text-dark">
-              <i class="fas fa-tag mr-2 text-accent"></i>
-              <span>Training • Education</span>
+            
+            <div class="footer-content fade-in">
+                <div class="footer-about">
+                    <h3>Tentang EdditanSimpel</h3>
+                    <p>
+                        EdditanSimpel hadir dengan filosofi memberikan hasil yang <strong>edgy</strong> dan modern, 
+                        dengan proses yang <strong>sederhana</strong> dan mudah dipahami. Kami percaya bahwa 
+                        desain dan percetakan berkualitas tidak harus rumit.
+                    </p>
+                    <div class="footer-contact-info">
+                        <div class="contact-line">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Jl. Percetakan No. 45, Jakarta Pusat</span>
+                        </div>
+                        <div class="contact-line">
+                            <i class="fas fa-phone"></i>
+                            <span>+62 21 1234 5678</span>
+                        </div>
+                        <div class="contact-line">
+                            <i class="fas fa-envelope"></i>
+                            <span>info@edditansimpel.com</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Navigasi</h3>
+                    <ul>
+                        <li><a href="#home">Beranda</a></li>
+                        <li><a href="#about">Tentang Kami</a></li>
+                        <li><a href="#services">Layanan</a></li>
+                        <li><a href="#portfolio">Portfolio</a></li>
+                        <li><a href="#process">Proses Kerja</a></li>
+                        <li><a href="#contact">Kontak</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>Layanan</h3>
+                    <ul>
+                        <li><a href="#services">Percetakan Digital</a></li>
+                        <li><a href="#services">Desain Grafis</a></li>
+                        <li><a href="#services">Packaging</a></li>
+                        <li><a href="#services">Sablon & Konveksi</a></li>
+                        <li><a href="#services">Signage</a></li>
+                        <li><a href="#services">Branding</a></li>
+                    </ul>
+                </div>
             </div>
-          </div>
+            
+            <div class="footer-newsletter fade-in">
+                <h3 class="newsletter-title">Tetap Terhubung</h3>
+                <p class="newsletter-desc">
+                    Berlangganan newsletter kami untuk mendapatkan update terbaru tentang promo, 
+                    tips desain, dan inspirasi kreatif langsung di inbox Anda.
+                </p>
+                <form class="newsletter-form">
+                    <input type="email" class="newsletter-input" placeholder="Alamat email Anda" required>
+                    <button type="submit" class="newsletter-btn">Berlangganan</button>
+                </form>
+            </div>
+            
+            <div class="footer-bottom">
+                <div class="copyright">
+                    <p>&copy; 2023 EdditanSimpel. All rights reserved.</p>
+                </div>
+                
+                <div class="footer-legal">
+                    <a href="#">Kebijakan Privasi</a>
+                    <a href="#">Syarat & Ketentuan</a>
+                    <a href="#">Kebijakan Cookie</a>
+                </div>
+                
+                <div class="payment-methods">
+                    <span class="payment-text">Metode Pembayaran:</span>
+                    <div class="payment-icon" title="Bank Transfer">
+                        <i class="fas fa-university"></i>
+                    </div>
+                    <div class="payment-icon" title="Credit Card">
+                        <i class="fab fa-cc-visa"></i>
+                    </div>
+                    <div class="payment-icon" title="E-Wallet">
+                        <i class="fas fa-wallet"></i>
+                    </div>
+                </div>
+            </div>
         </div>
-        
-        <!-- Portfolio Item 6 -->
-        <div class="portfolio-item rounded-2xl overflow-hidden shadow-soft card-hover reveal reveal-from-bottom" style="transition-delay: 0.6s">
-          <div class="relative group">
-            <img src="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Kampanye Digital Marketing" class="w-full h-56 object-cover group-hover:scale-105 transition-transform duration-300">
-            <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end p-4">
-              <div class="text-white">
-                <h3 class="font-bold text-lg mb-1">Kampanye Digital Marketing</h3>
-                <p class="text-sm opacity-90">Digital Marketing • Social Media</p>
-              </div>
-            </div>
-          </div>
-          <div class="p-6 bg-card-bg">
-            <h3 class="font-bold text-lg mb-2 text-text-dark">Kampanye Digital Marketing</h3>
-            <p class="text-text-dark mb-4">Strategi digital untuk brand fashion lokal</p>
-            <div class="flex items-center text-sm text-text-dark">
-              <i class="fas fa-tag mr-2 text-accent"></i>
-              <span>Digital Marketing • Social Media</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="text-center mt-12 reveal reveal-from-bottom">
-        <button class="btn-primary text-white px-8 py-3 rounded-lg font-medium shadow-medium">
-          Lihat Semua Portofolio
-        </button>
-      </div>
-    </div>
-    
-    <!-- Floating Elements -->
-    <div class="absolute top-20 left-20 w-96 h-96 rounded-full bg-gradient-to-r from-primary/5 to-secondary/5 blur-3xl"></div>
-    <div class="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-gradient-to-r from-secondary/5 to-accent/5 blur-3xl"></div>
-  </section>
+    </footer>
+<script src="script.js">
 
-  <!-- Section Divider -->
-  <div class="section-divider"></div>
-
-  <!-- Client Logos -->
-  <section class="py-16 bg-card-bg relative">
-    <div class="container mx-auto px-4 relative z-10">
-      <h2 class="text-3xl font-bold text-center mb-12 gradient-text reveal reveal-from-bottom">Mereka Telah Mempercayai Kami</h2>
-      <div class="flex flex-wrap justify-center items-center gap-10 md:gap-16">
-        <div class="bg-light-bg p-6 rounded-2xl w-48 h-48 flex items-center justify-center shadow-soft hover:shadow-medium transition-shadow duration-300 reveal reveal-from-bottom" style="transition-delay: 0.1s">
-          <img src="static/images/chikin2.png" alt="Klien 1" class="max-h-32 max-w-full object-contain">
-        </div>
-        <div class="bg-light-bg border-2 border-dashed border-border-light rounded-2xl w-48 h-48 flex items-center justify-center reveal reveal-from-bottom" style="transition-delay: 0.2s">
-          <span class="text-text-dark text-sm">Logo 2</span>
-        </div>
-        <div class="bg-light-bg border-2 border-dashed border-border-light rounded-2xl w-48 h-48 flex items-center justify-center reveal reveal-from-bottom" style="transition-delay: 0.3s">
-          <span class="text-text-dark text-sm">Logo 3</span>
-        </div>
-        <div class="bg-light-bg border-2 border-dashed border-border-light rounded-2xl w-48 h-48 flex items-center justify-center reveal reveal-from-bottom" style="transition-delay: 0.4s">
-          <span class="text-text-dark text-sm">Logo 4</span>
-        </div>
-        <div class="bg-light-bg border-2 border-dashed border-border-light rounded-2xl w-48 h-48 flex items-center justify-center reveal reveal-from-bottom" style="transition-delay: 0.5s">
-          <span class="text-text-dark text-sm">Logo 5</span>
-        </div>
-      </div>
-      <p class="text-center text-text-dark mt-10 text-base reveal reveal-from-bottom">
-        Bergabunglah dengan 500+ bisnis yang telah mengembangkan brand mereka bersama kami
-      </p>
-    </div>
-    
-    <!-- Floating Elements -->
-    <div class="absolute top-0 right-0 w-80 h-80 rounded-full bg-gradient-to-r from-primary/10 to-secondary/10 blur-3xl"></div>
-    <div class="absolute bottom-0 left-0 w-64 h-64 rounded-full bg-gradient-to-r from-secondary/10 to-accent/10 blur-3xl"></div>
-  </section>
-
-  <!-- Shape Divider -->
-  <div class="relative">
-    <div class="shape-divider">
-      <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
-        <path d="M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z" class="fill-light-bg"></path>
-      </svg>
-    </div>
-  </div>
-
-  <!-- Kontak -->
-  <section id="kontak" class="py-20 bg-light-bg relative">
-    <div class="container mx-auto px-4 relative z-10">
-      <div class="text-center mb-16 reveal reveal-from-bottom">
-        <h2 class="text-4xl font-bold mb-4 gradient-text">Wujudkan Ide Anda Bersama Kami</h2>
-        <p class="text-lg text-text-dark max-w-2xl mx-auto">Tim siap membantu mewujudkan visi brand Anda melalui konsultasi gratis</p>
-      </div>
-      <div class="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12">
-        <div class="bg-gradient-to-br from-primary to-secondary text-white p-8 rounded-2xl shadow-medium reveal reveal-from-left">
-          <div class="space-y-6 mb-8">
-            <div class="flex items-start">
-              <div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-medium flex-shrink-0 backdrop-blur-sm">
-                <i class="fas fa-map-marker-alt text-yellow-300 text-lg"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-lg mb-1">Alamat</h3>
-                <p class="text-white/90">Jl. Contoh Alamat No. 123,<br>Kota Contoh, Provinsi 12345</p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-medium flex-shrink-0 backdrop-blur-sm">
-                <i class="fas fa-phone-alt text-green-300 text-lg"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-lg mb-1">Telepon</h3>
-                <p class="text-white/90"><a href="tel:+6281234567890" class="hover:text-yellow-300 transition-colors">+62 812-3456-7890</a></p>
-              </div>
-            </div>
-            <div class="flex items-start">
-              <div class="bg-white/20 w-12 h-12 rounded-xl flex items-center justify-center mr-4 shadow-medium flex-shrink-0 backdrop-blur-sm">
-                <i class="fas fa-envelope text-blue-300 text-lg"></i>
-              </div>
-              <div>
-                <h3 class="font-semibold text-lg mb-1">Email</h3>
-                <p class="text-white/90"><a href="mailto:info@edditan-simpel.com" class="hover:text-yellow-300 transition-colors">info@edditan-simpel.com</a></p>
-              </div>
-            </div>
-          </div>
-          <div>
-            <h3 class="font-semibold text-lg mb-4">Ikuti Kami</h3>
-            <div class="flex space-x-4">
-              <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="bg-green-500 hover:bg-green-400 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-medium hover:shadow-strong transition-all">
-                <i class="fab fa-whatsapp text-xl"></i>
-              </a>
-              <a href="https://instagram.com/edditan_simpel" target="_blank" rel="noopener noreferrer" class="bg-gradient-to-r from-purple-500 to-pink-500 hover:from-purple-400 hover:to-pink-400 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-medium hover:shadow-strong transition-all">
-                <i class="fab fa-instagram text-xl"></i>
-              </a>
-              <a href="https://facebook.com/edditan.simpel" target="_blank" rel="noopener noreferrer" class="bg-blue-600 hover:bg-blue-500 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-medium hover:shadow-strong transition-all">
-                <i class="fab fa-facebook-f text-xl"></i>
-              </a>
-              <a href="https://tiktok.com/@edditan_simpel" target="_blank" rel="noopener noreferrer" class="bg-black hover:bg-gray-800 w-12 h-12 rounded-full flex items-center justify-center text-white shadow-medium hover:shadow-strong transition-all">
-                <i class="fab fa-tiktok text-xl"></i>
-              </a>
-            </div>
-          </div>
-        </div>
-
-        <div class="bg-card-bg p-8 rounded-2xl shadow-medium reveal reveal-from-right">
-          <form id="contactForm" class="space-y-6">
-            <div>
-              <label class="block mb-2 font-medium text-text-dark">Nama Lengkap</label>
-              <input type="text" placeholder="John Doe" class="w-full px-4 py-3 rounded-lg border border-border-light focus:outline-none form-input" required>
-            </div>
-            <div>
-              <label class="block mb-2 font-medium text-text-dark">Email Aktif</label>
-              <input type="email" placeholder="john@company.com" class="w-full px-4 py-3 rounded-lg border border-border-light focus:outline-none form-input" required>
-            </div>
-            <div>
-              <label class="block mb-2 font-medium text-text-dark">Ceritakan Kebutuhan Anda</label>
-              <textarea placeholder="Jelaskan proyek yang Anda butuhkan..." class="w-full px-4 py-3 rounded-lg border border-border-light focus:outline-none form-input" rows="4" required></textarea>
-            </div>
-            <button type="submit" class="w-full btn-primary text-white py-3 rounded-lg font-semibold shadow-medium">
-              Kirim Pesan
-            </button>
-          </form>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Floating Elements -->
-    <div class="absolute top-20 left-20 w-96 h-96 rounded-full bg-gradient-to-r from-primary/5 to-secondary/5 blur-3xl"></div>
-    <div class="absolute bottom-20 right-20 w-64 h-64 rounded-full bg-gradient-to-r from-secondary/5 to-accent/5 blur-3xl"></div>
-  </section>
-
-  <!-- Footer -->
-  <footer class="bg-gradient-to-br from-primary-dark via-primary to-secondary text-white py-12 md:py-16 relative">
-    <div class="container mx-auto px-4">
-      <div class="flex flex-col md:flex-row justify-between items-center">
-        <div class="mb-6 md:mb-0 reveal reveal-from-left">
-          <div class="flex items-center space-x-4 mb-4">
-            <!-- Logo Berwarna di Footer -->
-            <div class="gradient-bg w-14 h-14 rounded-xl flex items-center justify-center shadow-lg">
-              <span class="text-white text-lg font-bold">ES</span>
-            </div>
-            <h2 class="text-2xl font-bold font-playfair">EdditanSimpel</h2>
-          </div>
-          <p class="text-lg text-white/90 max-w-md">Solusi cetak & iklan terpercaya sejak 2015</p>
-          
-          <!-- Sosial media di footer -->
-          <div class="flex space-x-3 mt-4">
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="https://instagram.com/edditan_simpel" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://facebook.com/edditan.simpel" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all">
-              <i class="fab fa-facebook-f"></i>
-            </a>
-            <a href="https://tiktok.com/@edditan_simpel" target="_blank" rel="noopener noreferrer" class="bg-white/10 hover:bg-white/20 w-10 h-10 rounded-full flex items-center justify-center text-white backdrop-blur-sm transition-all">
-              <i class="fab fa-tiktok"></i>
-            </a>
-          </div>
-        </div>
-        <div class="text-center md:text-right reveal reveal-from-right">
-          <p class="text-lg text-white/90 mb-2">&copy; 2025 EdditanSimpel. All rights reserved.</p>
-          <p class="text-base text-white/70">Crafted with <i class="fas fa-heart text-red-400"></i> for your business growth</p>
-          
-          <!-- Additional footer links -->
-          <div class="mt-4 flex flex-col md:items-end space-y-1">
-            <a href="#" class="text-white/80 hover:text-white transition-colors text-sm">Privacy Policy</a>
-            <a href="#" class="text-white/80 hover:text-white transition-colors text-sm">Terms of Service</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    
-    <!-- Animated Background untuk footer -->
-    <div class="absolute inset-0 overflow-hidden">
-      <div class="absolute -top-40 -right-40 w-80 h-80 rounded-full bg-gradient-to-r from-secondary/30 to-accent/30 blur-3xl"></div>
-      <div class="absolute -bottom-40 -left-40 w-64 h-64 rounded-full bg-gradient-to-r from-primary/30 to-secondary/30 blur-3xl"></div>
-      
-      <!-- Decorative elements -->
-      <div class="absolute top-10 left-10 w-20 h-20 rounded-full bg-white/5"></div>
-      <div class="absolute bottom-10 right-10 w-16 h-16 rounded-full bg-white/5"></div>
-      <div class="absolute top-1/2 left-1/4 w-12 h-12 rounded-full bg-white/5"></div>
-      <div class="absolute top-1/3 right-1/3 w-8 h-8 rounded-full bg-white/5"></div>
-    </div>
-  </footer>
-
-  <!-- Back to Top -->
-  <button id="backToTop" class="fixed bottom-6 right-6 gradient-bg text-white p-3 rounded-full shadow-lg opacity-0 invisible transition-all z-40">
-    <i class="fas fa-arrow-up"></i>
-  </button>
-
-  <!-- Lightbox Structure -->
-  <div id="portfolioLightbox" class="fixed inset-0 z-50 hidden">
-    <!-- Overlay Background -->
-    <div class="absolute inset-0 bg-gradient-to-br from-primary-dark/90 to-primary/90 backdrop-blur-md"></div>
-    
-    <!-- Close Button -->
-    <button id="closeLightbox" class="absolute top-6 right-6 z-10 text-white bg-black/30 hover:bg-black/50 rounded-full p-3 transition-all">
-      <i class="fas fa-times text-xl"></i>
-    </button>
-    
-    <!-- Navigation Buttons -->
-    <button id="prevPortfolio" class="absolute left-6 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black/30 hover:bg-black/50 rounded-full p-3 transition-all">
-      <i class="fas fa-chevron-left text-xl"></i>
-    </button>
-    
-    <button id="nextPortfolio" class="absolute right-6 top-1/2 transform -translate-y-1/2 z-10 text-white bg-black/30 hover:bg-black/50 rounded-full p-3 transition-all">
-      <i class="fas fa-chevron-right text-xl"></i>
-    </button>
-    
-    <!-- Lightbox Content -->
-    <div class="relative z-10 flex items-center justify-center h-full p-8">
-      <div class="max-w-6xl w-full">
-        <!-- Portfolio Image -->
-        <div class="relative overflow-hidden rounded-2xl shadow-2xl mb-6 animate-zoomIn">
-          <img id="lightboxImage" src="" alt="" class="w-full h-auto max-h-[70vh] object-contain">
-        </div>
-        
-        <!-- Portfolio Details -->
-        <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white">
-          <h3 id="lightboxTitle" class="text-2xl font-bold mb-2"></h3>
-          <p id="lightboxDescription" class="mb-4 opacity-90"></p>
-          <div class="flex flex-wrap gap-2">
-            <span id="lightboxTags" class="inline-block bg-white/20 px-3 py-1 rounded-full text-sm"></span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-
-  <!-- Scripts -->
-  <script src="script.js"></script>
+</script>
 </body>
 </html>
