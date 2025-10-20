@@ -10,7 +10,7 @@
         // Promo Bar Slider
         let currentPromo = 0;
         const promoSlides = document.querySelectorAll('.promo-slide');
-        const promoInterval = 3000; // 3 seconds
+        const promoInterval = 8000; // 8 seconds
         
         function showPromoSlide(index) {
             promoSlides.forEach(slide => slide.classList.remove('active'));
@@ -29,7 +29,7 @@
         let currentSlide = 0;
         const heroSlides = document.querySelectorAll('.hero-slide');
         const sliderDots = document.querySelectorAll('.slider-dot');
-        const slideInterval = 5000; // 5 seconds
+        const slideInterval = 8000; // 8 seconds
         
         function showSlide(index) {
             heroSlides.forEach(slide => slide.classList.remove('active'));
@@ -372,7 +372,7 @@
         const testimonialItems = document.querySelectorAll('.testimonial-item');
         let currentTestimonial = 0;
         let testimonialInterval;
-        const testimonialIntervalTime = 5000; // 5 seconds
+        const testimonialIntervalTime = 8000; // 8 seconds
 
         function showTestimonial(index) {
             // Remove active class from all items
